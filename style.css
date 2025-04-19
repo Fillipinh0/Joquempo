@@ -1,0 +1,58 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+header {
+    background-color: red;
+    text-align: center;
+    color: white;
+    padding: 1rem 0rem 1rem 0rem;
+}
+main{
+    margin-top: 2rem;
+    padding: 1rem 0px 1rem 0px;
+    display: flex;
+    flex-direction: column;
+    background-color: purple;
+    align-items: center;
+    gap: 5rem;
+}
+.result {
+    display: none;
+    font-size: 2rem;
+}
+.scoreboard {
+    display: flex;
+    gap: 12px;
+    font-size: 4rem;
+    border: 1px solid blue;
+    padding: 0.9rem 2.2rem;
+}
+.movement_container {
+    display: flex;
+    gap: 30px;
+}
+.movement_container .moves {
+    width: 350px;
+    height: 350px;
+    border-radius: 100%;
+    background-size: cover;
+    background-position: center;
+    border: 0.5rem solid black;
+    
+}
+.movement_container .rock {
+    background-image: url(assets/Pedra.png);
+}
+.movement_container .scissors {
+    background-image: url(assets/tesoura.png);
+}
+.movement_container .paper {
+    background-image: url(assets/papel.png);
+}
+.message {
+    font-size: 2rem;
+    
+}
+
+
