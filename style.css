@@ -52,13 +52,13 @@ main{
     
 }
 .movement_container .rock {
-    background-image: url(assets/pedra.png);
+    background-image: url(assets/Pedra.png);
 }
 .movement_container .scissors {
-    background-image: url(assets/tesoura.png);
+    background-image: url(assets/Tesoura.png);
 }
 .movement_container .paper {
-    background-image: url(assets/papel.png);
+    background-image: url(assets/Papel.png);
 }
 .message {
     font-size: 2rem;
