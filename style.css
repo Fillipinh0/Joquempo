@@ -2,10 +2,14 @@
     margin: 0px;
     padding: 0px;
 }
+body {
+    background-color: rgb(41, 34, 34);
+}
 header {
-    background-color: red;
+    background-color: white
+    ;
     text-align: center;
-    color: white;
+    color: black;
     padding: 1rem 0rem 1rem 0rem;
 }
 main{
@@ -13,24 +17,24 @@ main{
     padding: 1rem 0px 1rem 0px;
     display: flex;
     flex-direction: column;
-    background-color: purple;
     align-items: center;
     gap: 5rem;
 }
 .result {
-    display: none;
     font-size: 2rem;
+    color: white;
 }
 .scoreboard {
     display: flex;
     gap: 12px;
     font-size: 4rem;
-    border: 1px solid blue;
-    padding: 0.9rem 2.2rem;
+    border: 1px solid white;
+    padding: 1.2rem 4rem;
+    color: white;
 }
 .movement_container {
     display: flex;
-    gap: 30px;
+    gap: 9rem;
 }
 .movement_container .moves {
     width: 350px;
@@ -38,11 +42,17 @@ main{
     border-radius: 100%;
     background-size: cover;
     background-position: center;
-    border: 0.5rem solid black;
+    border: 0.4rem solid white;
+    transition: 300ms;
+    
+}
+.movement_container .moves:hover {
+    transform: scale(1.1);
+    cursor: pointer;
     
 }
 .movement_container .rock {
-    background-image: url(assets/Pedra.png);
+    background-image: url(assets/pedra.png);
 }
 .movement_container .scissors {
     background-image: url(assets/tesoura.png);
@@ -52,7 +62,19 @@ main{
 }
 .message {
     font-size: 2rem;
+    color: white;
     
 }
 
+.movement_container .victory {
+    border-color: greenyellow;
+    box-shadow: 1px 1px 10px greenyellow;
+}
 
+.movement_container .loss {
+    border-color: rgb(241, 50, 50);
+    box-shadow: 1px 1px 10px rgb(241, 50, 50);
+}
+.draw {
+    box-shadow: 1px 1px 10px white;
+}
