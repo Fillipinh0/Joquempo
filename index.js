@@ -1,96 +1,77 @@
-const btnRock = document.querySelector(".rock"); 
-const btnPaper = document.querySelector(".paper");
-const btnScissors = document.querySelector(".scissors");
+const btnRock = document.getElementById("rock"); 
+const btnPaper = document.getElementById("paper");
+const btnScissors = document.getElementById("scissors");
+const btnsMove = document.getElementsByClassName("moves")
+
+const moves = {
+    paper: {
+        paper: "draw",
+        rock: "win",
+        scissors: "loss"
+    },
+    rock: {
+        paper: "loss",
+        rock: "draw",
+        scissors: "win"
+    },
+    scissors: {
+        paper: "win",
+        rock: "loss",
+        scissors: "draw"
+    }
+} 
+const machineMove = {
+    paper: "the machine selected paper ✋",
+    rock: "the machine selected rock ✊",
+    scissors: "the machine selected scissors ✌️"
+}
 
 
 let user = 0;
 let machine = 0;
 
-btnRock.addEventListener("click", (e) => {
-    const opponentMove = iaMove();
-    
-    switch(opponentMove) {
-        case "rock":
-            btnRock.classList.add("draw");
-            setTimeout(() => btnRock.classList.remove("draw"), 2000);
-            message("you draw", opponentMove);
-            break;
-        case "paper":
-            machine++;
-            changeScore();
-            btnRock.classList.add("loss");
-            setTimeout(() => btnRock.classList.remove("loss"), 2000);
 
-            message("You lose", opponentMove);
-            break;
-        default:
-            user++;
-            changeScore();
-            btnRock.classList.add("victory");
-            setTimeout(() => btnRock.classList.remove("victory"), 2000);
+//////////////////////////////////////
 
-            message("You win", opponentMove);
-        
-    }
-});
-
-btnPaper.addEventListener("click", (e) => {
-    const opponentMove = iaMove();
-    
-    switch(opponentMove) {
-        case "paper":
-            btnPaper.classList.add("draw");
-            setTimeout(() => btnPaper.classList.remove("draw"), 2000);
-            message("you draw", opponentMove);
-            break;
-        case "scissors":
-            machine++;
-            changeScore();
-            btnPaper.classList.add("loss");
-            setTimeout(() => btnPaper.classList.remove("loss"), 2000);
-
-            message("You lose", opponentMove);
-            break;
-        default:
-            user++;
-            changeScore();
-            btnPaper.classList.add("victory");
-            setTimeout(() => btnPaper.classList.remove("victory"),2000);
-            message("You win", opponentMove);
-        
-    }
+btnRock.addEventListener("click", () => {
+    playGame("rock");
     
 });
-btnScissors.addEventListener("click", (e) => {
-    const opponentMove = iaMove();
-    switch(opponentMove) {
-        case "scissors":
-            btnScissors.classList.add("draw");
-            setTimeout(() => btnScissors.classList.remove("draw"), 2000);
-            message("you draw", opponentMove);
 
-            break;
-        case "rock":
-            machine++;
-            changeScore();
-            btnScissors.classList.add("loss");
-            setTimeout(() => btnScissors.classList.remove("loss"), 2000);
-            message("You lose", opponentMove);
-            break;
-        default:
-            user++;
-            changeScore();
-            btnScissors.classList.add("victory");
-            setTimeout(() => btnScissors.classList.remove("victory"), 2000);
-            message("You win", opponentMove);
-    }
-
+btnPaper.addEventListener("click", () => {
+    playGame("paper");
 });
+btnScissors.addEventListener("click", () => {
+    
+    playGame("scissors");
+});
+
+///////////////////////////////////////////////////////////////////////////
+
+function playGame(move){
+    //tenho sono amanha olhgo isso direito pq esta tarde 
+    //disableBtns();
+    const btnMove = document.getElementById(move);
+    const opponentMove = iaMove();
+    const result =  moves[move][opponentMove];
+    const textMessage = `you ${result}, ${machineMove[opponentMove]}`;
+
+    btnMove.classList.add(result);
+    setTimeout(() => btnMove.classList.remove(result), 2000);
+    
+    setMessage(textMessage);
+
+    if(result === "win") user++;
+    else if(result === "loss")  machine++;
+
+    changeScore();
+}
+
 
 function iaMove(){
-    moves = ["rock", "paper", "scissors"];
-    const iRaffle = Math.floor(Math.random() * moves.length);
-    return moves[iRaffle]
+    const iaMoves = ["rock", "paper", "scissors"];
+    const iRaffle = Math.floor(Math.random() * iaMoves.length);
+    return iaMoves[iRaffle]
 }
 
 function changeScore() {
@@ -101,15 +82,12 @@ function changeScore() {
     pointsMachine.innerText = machine;
 }
 
-function message(result, machineMove) {
+function setMessage(textMessage) {
     const retornoMessage = document.querySelector(".result");
-    retornoMessage.innerText =  result + messageMachine(machineMove);
+    retornoMessage.innerText =  textMessage;
 }
+//tenho sono amanha olhgo isso direito pq esta tarde 
+// function disableBtns(){
+//     btnsMove.disabled = true;
+// }
 
-function messageMachine(machineMove) {
-    switch (machineMove) {
-        case "rock": return " the machine selected rock ✊";
-        case "paper": return " the machine selected paper ✋";
-        case "scissors": return " the machine selected scissors ✌️"; 
-    }
-}

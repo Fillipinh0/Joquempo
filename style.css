@@ -40,33 +40,28 @@ main{
     width: 350px;
     height: 350px;
     border-radius: 100%;
-    background-size: cover;
-    background-position: center;
-    border: 0.4rem solid white;
+    border: 0.5rem solid white;
     transition: 300ms;
-    
-}
-.movement_container .moves:hover {
-    transform: scale(1.1);
+    background-color: transparent;
     cursor: pointer;
+    overflow: hidden;
+
     
 }
-.movement_container .rock {
-    background-image: url(assets/Pedra.png);
+.movement_container .moves img {
+    width: 100%;
+    
 }
-.movement_container .scissors {
-    background-image: url(assets/Tesoura.png);
-}
-.movement_container .paper {
-    background-image: url(assets/Papel.png);
-}
+
+
+
 .message {
     font-size: 2rem;
     color: white;
     
 }
 
-.movement_container .victory {
+.movement_container .win {
     border-color: greenyellow;
     box-shadow: 1px 1px 10px greenyellow;
 }
@@ -75,6 +70,6 @@ main{
     border-color: rgb(241, 50, 50);
     box-shadow: 1px 1px 10px rgb(241, 50, 50);
 }
-.draw {
+.movement_container .draw {
     box-shadow: 1px 1px 10px white;
 }
