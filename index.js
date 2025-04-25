@@ -49,8 +49,7 @@ btnScissors.addEventListener("click", () => {
 ///////////////////////////////////////////////////////////////////////////
 
 function playGame(move){
-    //tenho sono amanha olhgo isso direito pq esta tarde 
-    //disableBtns();
+    disableBtns();
     const btnMove = document.getElementById(move);
     const opponentMove = iaMove();
     const result =  moves[move][opponentMove];
@@ -86,8 +85,11 @@ function setMessage(textMessage) {
     const retornoMessage = document.querySelector(".result");
     retornoMessage.innerText =  textMessage;
 }
-//tenho sono amanha olhgo isso direito pq esta tarde 
-// function disableBtns(){
-//     btnsMove.disabled = true;
-// }
+function disableBtns() {
+    Array.from(btnsMove).forEach((btn) => {
+        btn.classList.add("unavailable");
+        setTimeout(() => btn.classList.remove("unavailable"),2000);
+    });
+
+}
 
