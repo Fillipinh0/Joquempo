@@ -5,22 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors Game</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <dialog id="game_explanation">
+        <h1 style="text-align: center;">How to Play Rock, Paper, Scissors</h1>
+        <p>Welcome to the <strong>Rock, Paper, Scissors Game</strong>! Here's how it works:</p>
+        <ol>
+            <li><strong>Choose Your Move:</strong> Click on one of the three buttons: Rock ✊, Paper ✋, or Scissors ✌️.</li>
+            <li><strong>The Computer Makes a Move:</strong> The computer will randomly select a move.</li>
+            <li><strong>See the Result:</strong> The game will compare your move with the computer's move.</li>
+            <li><strong>Scoreboard Update:</strong> The scoreboard will be updated with wins and losses.</li>
+            <li><strong>Play Again:</strong> After each round, you can continue playing!</li>
+        </ol>
+        <button id="dialog_btn_close">Close</button>
+    </dialog>
     <header>
         <h1>Rock Paper Scissors</h1>
     </header>
     <main>
-        <section class="scoreboard">
-            <div class="points_user points">0</div>
-            <div class="points">:</div>
-            <div class="points_machine points">0</div>
+        <section class="container_scoreboard">
+            <img src="assets/player.svg" alt="icon Player" class="icon">
+            <article class="scoreboard">
+                <div class="points_user points">0</div>
+                <div class="points">:</div>
+                <div class="points_machine points">0</div>
+            </article>
+            <img src="assets/robo.svg" alt="icon machine" class="icon">
         </section>
+        
         <p class="result">teste</p>
         <section class="movement_container">
-            <button id="rock" class="moves"> <img src="assets/Pedra.png" alt="">  </button>
-            <button id="paper" class="moves"> <img src="assets/Papel.png" alt=""> </button>
-            <button id="scissors" class="moves"> <img src="assets/Tesoura.png" alt="">  </button>
+            <button id="rock" class="moves"> <img src="assets/Pedra.png" alt="Rock">  </button>
+            <button id="paper" class="moves"> <img src="assets/Papel.png" alt="Paper"> </button>
+            <button id="scissors" class="moves"> <img src="assets/Tesoura.png" alt="Scissors">  </button>
         </section> 
         <section class="message">Make your move.</section>
     </main>

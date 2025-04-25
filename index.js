@@ -1,7 +1,18 @@
 const btnRock = document.getElementById("rock"); 
 const btnPaper = document.getElementById("paper");
 const btnScissors = document.getElementById("scissors");
-const btnsMove = document.getElementsByClassName("moves")
+const btnsMove = document.getElementsByClassName("moves");
+const modal = document.getElementById("game_explanation");
+const btnCloseModal = document.getElementById("dialog_btn_close");
+
+btnCloseModal.addEventListener("click", () => {
+    modal.close();
+ 
+});
+
+(function openModal() {
+    modal.showModal();
+})();
 
 const moves = {
     paper: {
@@ -58,7 +69,7 @@ function playGame(move){
     btnMove.classList.add(result);
     setTimeout(() => btnMove.classList.remove(result), 2000);
     
-    setMessage(textMessage);
+    setMessage(textMessage, result);
 
     if(result === "win") user++;
     else if(result === "loss")  machine++;
@@ -76,14 +87,27 @@ function iaMove(){
 function changeScore() {
     const pointsUser = document.querySelector(".points_user");
     const pointsMachine = document.querySelector(".points_machine");
+    
+    pointsUser.classList.remove("win", "loss");
+    pointsMachine.classList.remove("win", "loss");
+;    if(user > machine)
+    {
+        pointsUser.classList.add("win");
+        pointsMachine.classList.add("loss");
+    } else if(machine > user) {
+        pointsMachine.classList.add("win");
+        pointsUser.classList.add("loss");
+    }
 
     pointsUser.innerText = user;
     pointsMachine.innerText = machine;
 }
 
-function setMessage(textMessage) {
-    const retornoMessage = document.querySelector(".result");
+function setMessage(textMessage, result) {
+    const retornoMessage = document.querySelector("p.result");
     retornoMessage.innerText =  textMessage;
+    retornoMessage.classList.remove("win", "draw", "loss")
+    retornoMessage.classList.add(result);
 }
 function disableBtns() {
     Array.from(btnsMove).forEach((btn) => {
